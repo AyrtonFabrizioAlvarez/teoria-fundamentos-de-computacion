@@ -9,7 +9,8 @@ Un <u>*problema de búsqueda*</u>, en cambio, requiere encontrar una solución e
 *Problema de decisión: ¿Existe una asignación de valores de verdad que hace verdadera una fórmula booleana? SAT (satisfactibilidad booleana)*  
 *Problema de búsqueda: Encontrar una asignación de valores de verdad que haga verdadera la fórmula.*
   
-**2. ¿Por qué en el caso de los problemas de decisión, podemos referirnos indistintamente a problemas y lenguajes?**  
+**2. ¿Por qué en el caso de los problemas de decisión, podemos referirnos indistintamente a problemas y lenguajes?**
+### ¡¡¡CONSULTAR!!! 
 Un problema de decisión es un conjunto de preguntas con respuesta "sí" o "no".  
 Un lenguaje es un conjunto de cadenas sobre un alfabeto.  
 ¿Por qué podemos referirnos a problemas de decisión como lenguajes?  
@@ -30,7 +31,7 @@ Si la fórmula no es satisfactible, el problema de búsqueda no tiene solución.
 *Problema de búsqueda: Encontrar una asignación de valores de verdad que haga verdadera la fórmula.*
   
 **4. Otra visión de MT es la que genera un lenguaje (visión generadora). En el caso del problema del  inciso  anterior,  ¿qué  lenguaje  generaría  la  MT  de  visión  generadora  que  resuelve  el problema?**  
-// CONSULTAR  
+### ¡¡¡CONSULTAR!!! 
 Una Máquina de Turing (MT) de visión generadora para SAT generaría el conjunto de todas las asignaciones de valores de verdad que satisfacen una fórmula dada.  
 Es decir, generaría el siguiente lenguaje:  
 *𝐿={(𝜙,𝐴)∣𝐴 es una asignacion de valores de verdad que satisface 𝜙}*  
@@ -107,6 +108,7 @@ LC = {0, 1}
 ![ejercicio6](./trabajo1-ejercicio6.png)
 
 ### Ejercicio 7. Construir una MT que calcule la resta de dos números. Ayuda: se puede considerar la idea de solución propuesta en clase. 
- 
+![ejercicio7](./trabajo1-ejercicio7.png)
+
 ### Ejercicio 8. Construir una MT que genere todas las cadenas de la forma anbn, con n ≥ 1. Ayuda: se puede considerar la idea de solución propuesta en clase. 
  
