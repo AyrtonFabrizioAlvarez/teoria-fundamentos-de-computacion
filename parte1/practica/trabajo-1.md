@@ -10,7 +10,6 @@ Un <u>*problema de búsqueda*</u>, en cambio, requiere encontrar una solución e
 *Problema de búsqueda: Encontrar una asignación de valores de verdad que haga verdadera la fórmula.*
   
 **2. ¿Por qué en el caso de los problemas de decisión, podemos referirnos indistintamente a problemas y lenguajes?**
-### ¡¡¡CONSULTAR!!! 
 Un problema de decisión es un conjunto de preguntas con respuesta "sí" o "no".  
 Un lenguaje es un conjunto de cadenas sobre un alfabeto.  
 ¿Por qué podemos referirnos a problemas de decisión como lenguajes?  
@@ -31,28 +30,9 @@ Si la fórmula no es satisfactible, el problema de búsqueda no tiene solución.
 *Problema de búsqueda: Encontrar una asignación de valores de verdad que haga verdadera la fórmula.*
   
 **4. Otra visión de MT es la que genera un lenguaje (visión generadora). En el caso del problema del  inciso  anterior,  ¿qué  lenguaje  generaría  la  MT  de  visión  generadora  que  resuelve  el problema?**  
-### ¡¡¡CONSULTAR!!! 
-Una Máquina de Turing (MT) de visión generadora para SAT generaría el conjunto de todas las asignaciones de valores de verdad que satisfacen una fórmula dada.  
-Es decir, generaría el siguiente lenguaje:  
-*𝐿={(𝜙,𝐴)∣𝐴 es una asignacion de valores de verdad que satisface 𝜙}*  
-**(Cada palabra en este lenguaje representa una pareja (φ, A), donde φ es una fórmula booleana y A es una asignación de verdad que la satisface.)**  
-<u>**Ejemplo: Supongamos la formula:**</u>  
-- 𝜙 = (x ∨ y) (OR)  
-
-Las asignaciones que satisfacen la fórmula son: 
-- 𝐴1 = (x=0,y=1)  
-- A2 = (x=1,y=0)  
-- A3 = (x=1,y=1)  
-
-El lenguaje generado por la MT sería:  
-- 𝐿 = {(𝜙,𝐴1),(𝜙,𝐴2),(𝜙,𝐴3)}  
-
-Es decir, la MT genera todas las asignaciones que hacen verdadera la fórmula.  
-Si en cambio la fórmula fuera insatisfactible, la MT no generaría nada.  
-
 Ʃ = {a, b, ∨} simbolos que supongo tiene el alfabeto  
 Ʃ* ={todas las convinaciones (infinitas) de los simbolos del alfabeto}  
-L = {todas las convinaciones (infinitas) de los simbolos del alfabeto que resultan satisfactibles}   
+L = {todas las convinaciones (infinitas) de los simbolos del alfabeto que resultan en una formula booleana satisfactibles}   
 una maquina generadora, en este caso nos generaria infinitas combinaciones con el conjunto Ʃ, ya que no tenemos restricciones.
 
   
@@ -92,7 +72,7 @@ L = {λ, 01, 0011, 000111, 00001111, 0000011111, 000000111111, ...}
 Ʃ* ⋃ L = Ʃ*  
 LC = {0, 1}  
 
-### Ejercicio 3. En clase se mostró una MT no determinística (MTN) que acepta las cadenas de la forma han o hbn, con n ≥ 0. Construir (describir la función de transición) una MT  determinística (MTD) equivalente.
+### Ejercicio 3. En clase se mostró una MT no determinística (MTN) que acepta las cadenas de la forma han o hbn, con n ≥ 0. Construir (describir la función de transición) una MT  determinística (MTD) equivalente.  
 ![ejercicio3](./trabajo1-ejercicio3.png)
 
  
@@ -100,8 +80,7 @@ LC = {0, 1}
 ### L = {anbncn | n ≥ 0}.  
 ![ejercicio4](./trabajo1-ejercicio4.png)
 
-### Ejercicio  5.  Explicar  cómo  una  MT  sin  el  movimiento  S  (el  no  movimiento)  puede  simular (ejecutar) otra que sí lo tiene. 
-### ¡¡¡CONSULTAR!!!
+### Ejercicio  5.  Explicar  cómo  una  MT  sin  el  movimiento  S  (el  no  movimiento)  puede  simular (ejecutar) otra que sí lo tiene.  
 ![ejercicio5](./trabajo1-ejercicio5.png)
 
 ### Ejercicio 6. En clase se construyó una MT con 2 cintas que acepta L = {w | w ∈ {a, b}* y w es un palíndromo}.  Construir  una  MT  equivalente  con  1  cinta.  Ayuda:  la  solución  que  vimos  para aceptar el lenguaje de las cadenas anbn, con n ≥ 1, puede ser un buen punto de partida. 
@@ -111,4 +90,4 @@ LC = {0, 1}
 ![ejercicio7](./trabajo1-ejercicio7.png)
 
 ### Ejercicio 8. Construir una MT que genere todas las cadenas de la forma anbn, con n ≥ 1. Ayuda: se puede considerar la idea de solución propuesta en clase. 
- 
+ ![ejercicio8](./trabajo1-ejercicio8.png)
