@@ -26,6 +26,7 @@ Si tenemos una MT1 que resuelve un lenguaje L1, y una MT2 que resuelve un lengua
 La máquina original M, que acepta L, garantiza que cuando una cadena w está en L se detendrá aceptándola; sin embargo, cuando la cadena w no pertenece a L, M puede no detenerse (entrar en un bucle infinito). Simplemente intercambiar los estados de aceptación y no aceptación no soluciona el problema de la detención, ya que M′ no tiene control sobre las computaciones infinitas de M.  
 
 ### 5. ¿Qué lenguajes de la clase CO-RE tienen MT que los aceptan? ¿También los deciden?  
+### <u>CONSULTAR</u>  
 **Definición de CO-RE:**  
 Son aquellos lenguajes cuyo complemento es recursivamente numerable (L ∈ CO-RE ^ LC ∈ RE).
 
@@ -35,7 +36,8 @@ Para un lenguaje L ∈ CO-RE, existe una MT que semidecide su complemento LC. Es
 **Decisión:**  
 Los lenguajes en CO-RE, en general, no son decidibles a menos que además pertenezcan a RE (en cuyo caso serían recursivos ya que RE ⋂ CO-RE ⊆ R). Por ello, en CO-RE podemos tener máquinas que aceptan (semi-decidibilidad) pero no necesariamente deciden el lenguaje.
 
-### 6. Probar que el lenguaje Ʃ* de todas las cadenas y el lenguaje vacío ∅ son recursivos. Alcanza con plantear la idea general. Ayuda: encontrar MT que los decidan.
+### 6. Probar que el lenguaje Ʃ* de todas las cadenas y el lenguaje vacío ∅ son recursivos. Alcanza con plantear la idea general. Ayuda: encontrar MT que los decidan.  
+### <u>CONSULTAR</u>  
 **Lenguaje Σ* (todas las cadenas):**  
 Se puede construir una MT que, para cualquier entrada, simplemente acepte sin realizar ningún cómputo complejo. Esta máquina siempre se detiene aceptando, lo que demuestra que Σ* es recursivo.
 
@@ -45,10 +47,13 @@ De manera similar, se puede diseñar una MT que, para cualquier entrada, rechace
 La idea central es definir máquinas de Turing “triviales” que no necesitan realizar cálculos complejos y siempre se detienen con una respuesta.
 
 ### 7. Probar que todo  lenguaje finito  es recursivo.  Alcanza  con  plantear la idea general.  Ayuda: encontrar una MT que lo decida (pensar cómo definir sus transiciones para cada una de las cadenas del lenguaje).  
+### <u>CONSULTAR</u>   
 En este caso necesitamos construir una MT que ante cualquier cadena de un lenguaje L que es finito, tenga una transicion que termine aceptando cualquier cadena definida en el lenguaje L.
 
 
-## Ejercicio 2. Considerando la Propiedad 2 estudiada en clase: 
+
+## Ejercicio 2. Considerando la Propiedad 2 estudiada en clase:  
+### <u>CONSULTAR</u>  
 ### 1. ¿Cómo implementaría la copia de la entrada w en la cinta 2 de la MT M?  
 **Paso 1: Por cada posicion de la cinta 1 con un simbolo <> B:**  
 - Copiar el simbolo encontrado en la cinta 1 a la cinta 2
@@ -77,12 +82,15 @@ Si existe una MT M1 que decide un lenguaje L1, y existe una MT M2 que decide un 
 ![ejercicio3.2](./imagenes/trabajo2-ejercicio3.2.png)
 
 
+
 ## Ejercicio  4.
 ### Sean  L1  y  L2  dos  lenguajes  recursivamente  numerables  de  números  naturales codificados en unario (por ejemplo, el número 5 se representa con 11111). Probar que también es recursivamente numerable el lenguaje L = {x | x es un número natural codificado en unario, y existen y, z, tales que y + z = x, con y ∈ L1, z ∈ L2}.  Ayuda: la prueba es similar a la vista en clase, de la clausura de la clase RE con respecto a la operación de concatenación.  
 
 
 
+
 ## Ejercicio 5. Dada una MT M1 con alfabeto Γ = {0, 1}: 
 ### 1. Construir una MT M2, utilizando la MT M1, que acepte, cualquiera sea su cadena de entrada, sii la MT M1 acepta al menos una cadena.  
+
 
 ### 2. ¿Se puede construir además una MT M3, utilizando la MT M1, que acepte, cualquiera sea su cadena de entrada, sii la MT M1 acepta a lo sumo una cadena? Justificar. Ayuda para la parte (1): si M1 acepta al menos una cadena, entonces existe al menos una cadena de símbolos 0 y 1, de tamaño n, tal que M1 la acepta en k pasos. Teniendo en cuenta esto, pensar cómo M2 podría simular M1 considerando todas las cadenas de símbolos 0 y 1 hasta encontrar eventualmente una que M1 acepte (¡cuidándose de los casos en que M1 entre en loop!).  
