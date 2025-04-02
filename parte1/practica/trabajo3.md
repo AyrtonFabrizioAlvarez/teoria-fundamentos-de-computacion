@@ -58,16 +58,18 @@ La idea general es construir una MT M que a partir de la entrada del numero natu
  
 ## Ejercicio 4. Sea M1 una MT que genera en su cinta de salida todas las cadenas de un lenguaje L. Dar la idea general de cómo sería una MT M2 que, usando M1, acepte una cadena w sii w ∈ L.  
 Idea general, la MT M2 debería:
-- aceptar w si w ∈ L
-- rechazar si w ∉ L
+- paso 1: MT M2 toma la cadena w1 de su entrada 
+- paso 2: ejecuta la MT M1 para que genere de a UNA las cadena w2
+- paso 3: si w1 == w2 M2 acepta
+- paso 4: si w1 != w2 entonces vuelvo al paso 2
 
 Entonces:
-- M2 ejecuta M1 para obtener una cadena w ∈ L
-- M2 **<u>SIEMPRE ACEPTA</u>** ya que todas las cadenas que genere M1 son cadenas w ∈ L
+- M2 ejecuta M1 para obtener una cadena w2 ∈ L que compara con su cadena w1 de entrada
+- M2 **<u>PUEDE ACEPTAR</u>** pero **<u>NUNCA PODRIA DECIDIRLO</u>**
 
 ![ejercicio4](./imagenes/trabajo3-ejercicio4.png)
  
-## Ejercicio  5. El lenguaje LU = {(<M>, w) | M  acepta  w} se conoce como lenguaje universal, y representa el problema general de aceptación. Probar que LU ∈ RE. Ayuda: construir una MT que acepte LU. 
+## Ejercicio  5. El lenguaje LU = {(< M >, w) | M  acepta  w} se conoce como lenguaje universal, y representa el problema general de aceptación. Probar que LU ∈ RE. Ayuda: construir una MT que acepte LU. 
 Para construir una MT M1 que acepte LU, lo que hacemos es ver que M1 ejecute w sobre el código que representa a M y:
 - si M acepta w -> M1 acepta
 - si M rechaza w -> M1 rechaza
@@ -79,29 +81,32 @@ Para construir una MT M1 que acepte LU, lo que hacemos es ver que M1 ejecute w s
 **f01(v) = 1, si v = (< M >, w) y M para a partir de w.**  
 **f01(v) = 0, si v = (< M >, w) y M no para a partir de w o bien v ≠ (< M >, w).**  
 **Probar que f01 no es total computable (es recursivo). Ayuda: ¿con qué problema se relaciona dicha función?**  
-Este problema se relaciona directamente con el HP. Para demostrar que no es total computable (recursivo - siempre se detiene) vamos a suponer que justamente es total computable para llegar a un absurdo.
-Como sabemos que el HP (problema de la parada) es indecidible, para esto deberiamos construir una maquina que decida el HP, por lo tanto f01 no es total computable.
+Este problema se relaciona directamente con el HP.
+Suponemos que f01 es total computable (R), ya que podria indicarnos cuando M se "para" o "no para", de ser esto posible estariamos volviendo DECIDIBLE el HP, es por esto que seria un absurdo probar que f01 es total computable (R)
  
 ## Ejercicio  7. Responder breve y claramente cada uno de los siguientes  incisos (en todos los casos, las MT mencionadas tienen una sola cinta):  
 ## formula general del calculo `Total: N = K.N1.N2^K configuraciones distintas` `k=celdas` `n1=estados` `n2=simbolos`
 ### a. Probar que se puede decidir si una MT M, a partir de la cadena vacía λ, escribe alguna vez un símbolo no blanco. Ayuda: ¿Cuántos pasos puede hacer M antes de entrar en un loop?  
-N = K.N1.N2^K  
-K celdas, a 1 que es la cantidad de simbolos que queremos decidir si se escriben  
-N1 estados, sabemos que son finitos, pero no cuantos en total  
-N2 simbolos, no conocemos cuantos son en total  
-
-N = estados * simbolos  
-
+- M recibe el codigo de maquina correspondiente (< M' >, w)   
+- K celdas, es 1 ya que estamos trabajando con la cadena vacía   
+- N1 estados, al desconocer la cantidad de estados  
+- N2 simbolos, solo tiene en cuenta el simbolo en blanco (la cinta de entrada tendria todos blancos por simular λ sobre M')  
+- **En este caso es en funcion de los estados que sabremos la cantidad de pasos que haria M' antes de entrar en loop**
 
 ### b. Probar que se puede decidir si una MT M que sólo se mueve a la derecha,  a partir de una cadena w, para, Ayuda: ¿Cuántos pasos puede hacer M antes de entrar en un loop?  
-N = K.N1.N2^K  
-K celdas, en este caso es la longitud+1 de la cadena w (para verificar el B siguiente a la cadena)  
-N1 estados, sabemos que son finitos, pero no cuantos en total  
-N2 simbolos, no conocemos cuantos son en total  
-
-N = (len(w)+1).N1.N2^(len(w)+1)  
+- Al tener una maquina que solo va a la derecha, solo podemos leer ya que si escribimos no podriamos "releerlo".  
+- K celdas, partimos de la necesidad de verificar toda la cadena w, por eso lo tenemos en cuenta como el len(w)+1 (+1 por el primer B luego de w)
+- N1 estados, podriamos recorrer tantos "B" luego de la cadena como estados tengamos
+- N2 simbolos, desconocemos la cantidad de simbolos 
+- **En este caso es en funcion de la longitud de la cadena (len(w)+1 + N1)**
 
 ### c. Probar que se puede decidir si dada una MT M, existe una cadena w a partir de la cual M para en a lo sumo 10 pasos. Ayuda: ¿Hasta qué tamaño de cadenas hay que chequear?  
+- A lo sumo poder recorrer 10 pasos nos indica que podremos como mucho procesar cadenas de tamaño 10 (suponiendo 1 paso 1 lectura de caracter)
+- Al limitar el tamaño de las cadenas se vuelve un conjunto finito para chequear, por lo cual pasa a ser un lenguaje decidible
+  - si pasos <= 10 si M para es porque acepta
+  - si pasos = 10 y M no para rechaza
 
-
-### d. ¿Se puede decidir si dada una MT M, existe una cadena w de a lo sumo 10 símbolos a partir de la cual M para? Justificar la respuesta. 
+### d. ¿Se puede decidir si dada una MT M, existe una cadena w de a lo sumo 10 símbolos a partir de la cual M para? Justificar la respuesta.  
+- Tenemos una restriccion que el len(w) <= 10
+- Esta restriccion no afecta a la MT M
+- No conocemos su código (estados, simbolos) entonces no sabemos como computaria la cadena de entrada mas alla de la cantidad de simbolos
