@@ -15,18 +15,24 @@
   - Las funciones de reduccion que se dan en las MTf no pueden simular otras MT's sobre todo si no son decidibles ya que potencialmente la MT que simulemos dentro de MTf podría loopear y esto va en contra de los fundamentos de las funciones de reduccion (siempre deben parar).
   
 ## Ejercicio 2. Sabiendo que LU ∈ RE y LUC ∈ CO-RE: 
-- **a.** Probamos en clase que existe  una reducción de LU  a LƩ*.  En base a esto,  ¿qué se puede afirmar con respecto a la ubicación de LƩ* en la jerarquía de la computabilidad?  
+- **a.** Probamos en clase que existe  una reducción de LU a LƩ*.  En base a esto,  ¿qué se puede afirmar con respecto a la ubicación de LƩ* en la jerarquía de la computabilidad?  
   - Sabemos que existe una reduccion de LU <= LƩ*, esto nos dice que LƩ* es igual o más complejo que LU
   - Como LU ∈ RE y LƩ* es igual o mas complejo, entonces deducimos que LƩ* ∉ R, porque R es menos complejo que RE **LƩ* ∉ R**
   - Sabemos que existe una reduccion de LUC <= LƩ*, esto nos dice que LƩ* es igual o más complejo que LUC
   - Como LUC ∈ CO-RE y LƩ* es igual o mas comlejo, entonces deducimos que LƩ* ∉ RE, porque RE es menos complejo que CO-RE **LƩ* ∉ RE**
-  - LƩ* podria estar en CO-RE solamente si LƩ*C ∈ RE y como sabemos que LƩ* ∉ RE entonces LƩ*C ∉ CO-RE ****LƩ* ∉ CO-RE****
-  - Nos quedaría que LƩ* y LƩ*C están en **L - (RE ⋃ CO-RE)**
+  - si LU <= LƩ* y sabemos por propiedad del complemento que entonces LUC <= LƩ*C, sabiendo que LUC ∈ CO-RE entonces podriamos pensar que LƩ*C ∈ CO-RE, pero ya demostramos que LƩ* ∉ RE, sabienDO que para que un lenguaje L ∈ CO-RE, LC ∈ RE, entonces no puede pasar que LƩ* y LƩ*C ∈ CO-RE.
+  - Tanto LƩ* y LƩ*C ∈ L - (RE ⋃ CO-RE)
 - **b.** Se prueba que existe una reducción de LUC a L∅. En base a esto, ¿qué se puede afirmar con respecto a la ubicación de L∅ en la jerarquía de la computabilidad? 
-  - 
+  - Sabemos que existe una rediccion de LUC a L∅, esto nos dice que L∅ es igual o mas complejo que LUC
+  - Como LUC ∈ CO-RE y L∅ es igual o mas complejo, entonces deducimos que L∅ ∉ RE ya que RE es menos complejo que CO-RE ***(por lo tanto ∉ R)***
+  - Por construccion sabemos que podemos tener una MT que acepte AL MENOS UNA CADENA (L∅C), como puedo construir esa maquina demuestro qeu L∅C ∈ RE
+  - Por propiedad sabemos que si L1 ∈ RE -> L1C ∈ CO-RE, entonces si L∅C ∈ RE entonces L∅ ∈ CO-RE
  
 ## Ejercicio  3.  Sea el lenguaje DHP  = {wi  | Mi  para  a partir de  wi} (considerar  el orden  canónico). Encontrar  una  reducción  de  DHP  a  HP.  Comentario:  hay  que  definir  la  función  de  reducción  y probar su total computabilidad y correctitud.  
+![ejercicio3](./imagenes/trabajo4-ejercicio3.png) 
  
 ## Ejercicio 4. Sean TAUT y NOSAT los lenguajes de las fórmulas booleanas sin cuantificadores tautológicas  (satisfactibles  por  todas  las  asignaciones  de  valores  de  verdad)  e  insatisfactibles (insatisfactibles por todas las asignaciones de valores de verdad). Encontrar una reducción de TAUT  a  NOSAT.  Comentario:  hay  que  definir  la  función  de  reducción  y  probar  su  total computabilidad y correctitud.  
+![ejercicio4](./imagenes/trabajo4-ejercicio4.png)
  
 ## Ejercicio 5. Se prueba que existe una reducción de LUC a LƩ* (y así, como LUC ∉ RE, entonces se cumple que LƩ* ∉ RE). La reducción es la siguiente. Para toda w: f((< M1 >, w)) = < M2 >, tal que M2, a partir de su entrada v, ejecuta |v| pasos de M1 a partir de w, y acepta sii M1 no acepta. Probar que la función definida es efectivamente una reducción de LUC a LƩ*. Comentario: hay que probar su total computabilidad y correctitud.  
+![ejercicio5](./imagenes/trabajo4-ejercicio5.png)
